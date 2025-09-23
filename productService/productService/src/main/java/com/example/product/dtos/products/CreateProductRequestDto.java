@@ -1,0 +1,33 @@
+package com.example.product.dtos.products;
+
+import com.example.product.models.Category;
+import com.example.product.models.Product;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class CreateProductRequestDto
+{
+    private String title;
+    private String description;
+    private Double price;
+    private String imageurl;
+    private String categoryName;
+
+    public Product toProduct()
+    {
+        Product product = new Product();
+        product.setTitle(this.title);
+        product.setPrice(this.price);
+        product.setDescription(this.description);
+        product.setImageurl(this.imageurl);
+
+        Category category = new Category();
+        category.setName(categoryName);
+
+        product.setCategory(category);
+
+        return product;
+    }
+}
