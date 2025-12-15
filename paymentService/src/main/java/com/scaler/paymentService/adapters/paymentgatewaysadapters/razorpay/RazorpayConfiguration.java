@@ -20,7 +20,7 @@ public class RazorpayConfiguration{
             throw new IllegalStateException("Razorpay keys not set in environment variables");
         }
 
-        System.out.println("🔑 Using Razorpay Key ID: " + keyId); // for debug only
+        System.out.println("Using Razorpay Key ID: " + keyId); // for debug only
         return new RazorpayClient(keyId, keySecret);
     }
 }
